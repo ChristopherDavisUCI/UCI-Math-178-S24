@@ -1,0 +1,15 @@
+format: jb-book
+root: intro
+parts:
+- caption: Labs
+  chapters:
+    - file: Lab1
+    - file: Lab2
+    - file: Lab3
+    - file: Lab4
+    - file: Lab5
+- caption: Miscellaneous
+  chapters: 
+    - file: Week8-Friday
+    - file: Week9-Wednesday
+

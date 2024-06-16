@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 2 - Math 178, Spring 2024 &#8212; UC Irvine Math 178, Spring 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lab2';</script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lab 3 - Math 178, Spring 2024" href="Lab3.html" />
+    <link rel="prev" title="Lab 1 - Math 178, Spring 2024" href="Lab1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Faces.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Faces.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    UC Irvine, Math 178, Spring 2024
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab1.html">Lab 1 - Math 178, Spring 2024</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 2 - Math 178, Spring 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab3.html">Lab 3 - Math 178, Spring 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab4.html">Lab 4 - Math 178, Spring 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab5.html">Lab 5 - Math 178, Spring 2024</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Week8-Friday.html">Week 8 Friday</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week9-Wednesday.html">Week 9 Wednesday</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ChristopherDavisUCI/UCI-Math-178-S24" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lab2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 2 - Math 178, Spring 2024</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-data">Preparing the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-using-scikit-learn">Logistic regression - using scikit-learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-by-hand">Naive Bayes - by hand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#possible-extensions">Possible extensions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-2-math-178-spring-2024">
+<h1>Lab 2 - Math 178, Spring 2024<a class="headerlink" href="#lab-2-math-178-spring-2024" title="Permalink to this heading">#</a></h1>
+<p>You are encouraged to work in groups of up to 3 total students, but each student should submit their own file. (It’s fine for everyone in the group to submit the same link.)</p>
+<p>Put the full names of everyone in your group (even if you’re working alone) here. This makes grading easier.</p>
+<p><strong>Names</strong>:</p>
+<p>The attached data is a very slightly altered form of this <a class="reference external" href="https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud/data">Kaggle dataset</a>.</p>
+<ul class="simple">
+<li><p>Read in the attached credit card fraud data and look at its contents.  Pay particular attention to the column data types.  In this lab, we are interested in predicting the contents of the “fraud” column.</p></li>
+</ul>
+<section id="preparing-the-data">
+<h2>Preparing the data<a class="headerlink" href="#preparing-the-data" title="Permalink to this heading">#</a></h2>
+<p>Divide the data into a training set and a test set.  Specify a <code class="docutils literal notranslate"><span class="pre">random_state</span></code> when you call <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code>, so that you get consistent results.  I had trouble in the logistic regression section if my training set was too big, so I recommend using only 10% of the data (still a lot, 100,000 rows) as the training size.  It’s possible that using even a smaller training size is appropriate.</p>
+<ul class="simple">
+<li><p>Imagine we always predict “Not Fraud”.  What accuracy score (i.e., proportion correctly classified) do we get on the training set?  On the test set?  Why can there not be any overfitting here?</p></li>
+</ul>
+</section>
+<section id="logistic-regression-using-scikit-learn">
+<h2>Logistic regression - using scikit-learn<a class="headerlink" href="#logistic-regression-using-scikit-learn" title="Permalink to this heading">#</a></h2>
+<p>Fit a scikit-learn <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> classification model to the training data.  Because it is such a large dataset, I ran into errors/warnings during the <code class="docutils literal notranslate"><span class="pre">fit</span></code> stage if I had instantiated the <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> object using the default parameters.   To combat this, I used only 10% of the data in my training set, I increased the default number of iterations, and I changed the solver.  You can see the options in the <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> class <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">documentation</a>.  Originally I also increased the default tolerance, but it seems like this makes the model less accurate, so try to avoid increasing the tolerance if possible.  Don’t be surprised if fitting the model takes up to 5 minutes.  If you’re having issues, try increasing the tolerance very slightly.</p>
+<ul class="simple">
+<li><p>What is the accuracy score on the training set?  On the test set?  Are you concerned about overfitting?</p></li>
+</ul>
+<ul class="simple">
+<li><p>Evaluate the scikit-learn <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> function on the test data (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">documentation</a>).  Which entry in this confusion matrix would you focus the most on, if you were a bank?  Why?</p></li>
+</ul>
+</section>
+<section id="naive-bayes-by-hand">
+<h2>Naive Bayes - by hand<a class="headerlink" href="#naive-bayes-by-hand" title="Permalink to this heading">#</a></h2>
+<p>Our goal in this section is to perform Naive Bayes “by hand” (or at least without using a scikit-learn model).  Recall that Naive Bayes is based on the following formula, taken from Section 4.4 of ISLP:</p>
+<p><img alt="Formula 4.30" src="_images/naiveBayes.png" /></p>
+<p>In our case, <span class="math notranslate nohighlight">\(k\)</span> will represent either “Fraud” or “Not Fraud”.  The function <span class="math notranslate nohighlight">\(f_{ki}(x_i)\)</span> represents the probability (or probability density) of the i-th predictor being <span class="math notranslate nohighlight">\(x_i\)</span> in class <span class="math notranslate nohighlight">\(k\)</span>.  To estimate these functions <span class="math notranslate nohighlight">\(f_{ki}\)</span>, we will use the first and third bullet points beneath Equation (4.30) in ISLP, according to whether the variable is a float type or a Boolean type.  The term <span class="math notranslate nohighlight">\(\pi_k\)</span> represents <em>prior</em> probability of class <span class="math notranslate nohighlight">\(k\)</span> (<em>prior</em> meaning without dependence on the predictors <span class="math notranslate nohighlight">\(x_i\)</span>).</p>
+<p>Strategy:</p>
+<ul class="simple">
+<li><p>We first compute the values <span class="math notranslate nohighlight">\(\pi_k\)</span>.</p></li>
+<li><p>We then (prepare to) compute the functions <span class="math notranslate nohighlight">\(f_{ki}\)</span> when <span class="math notranslate nohighlight">\(i\)</span> represents a float column.</p></li>
+<li><p>We then (prepare to) compute the functions <span class="math notranslate nohighlight">\(f_{ki}\)</span> when <span class="math notranslate nohighlight">\(i\)</span> represents a Boolean column.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Define a dictionary <code class="docutils literal notranslate"><span class="pre">prior_dct</span></code> representing the two prior values <span class="math notranslate nohighlight">\(\pi_{Fraud}\)</span> and <span class="math notranslate nohighlight">\(\pi_{Not Fraud}\)</span>, as in the following template.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>prior_dct = {
+    &quot;Fraud&quot;: ???,
+    &quot;Not Fraud&quot;: ???
+}
+</pre></div>
+</div>
+<p>Reality check: the two values should sum to (approximately) 1.</p>
+<ul class="simple">
+<li><p>It’s temporarily convenient here to have <code class="docutils literal notranslate"><span class="pre">X_train</span></code> and <code class="docutils literal notranslate"><span class="pre">y_train</span></code> together in the same DataFrame.  Concatenate these together along the columns axis and name the result <code class="docutils literal notranslate"><span class="pre">df_train</span></code>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">Gaussian_helper</span></code> which takes a DataFrame input <code class="docutils literal notranslate"><span class="pre">df</span></code> and two string inputs, a class <code class="docutils literal notranslate"><span class="pre">k</span></code> (which will be “Not Fraud” or “Fraud” in our case) and a column name <code class="docutils literal notranslate"><span class="pre">col</span></code> of one of the float columns.  The output should be a dictionary with keys <code class="docutils literal notranslate"><span class="pre">&quot;mean&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;std&quot;</span></code>, representing the mean and the standard deviation for the given column within the given class, as in the first bullet point after (4.30).</p></li>
+</ul>
+<p>Comment: To find the mean and standard deviation, you can use the formulas in (4.20) (take the square root of the variance to get the standard deviation), but I think it’s easier to just let pandas compute these for you, using the <code class="docutils literal notranslate"><span class="pre">mean</span></code> and <code class="docutils literal notranslate"><span class="pre">std</span></code> methods of a pandas Series.  It’s possible pandas will use <span class="math notranslate nohighlight">\(n\)</span> instead of the <span class="math notranslate nohighlight">\(n-K\)</span> in Equation (4.20), but that shouldn’t be significant here because <span class="math notranslate nohighlight">\(n\)</span> is so big and <span class="math notranslate nohighlight">\(K=2\)</span>.</p>
+<p>Here is a possible template:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Gaussian_helper</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+    <span class="n">output_dct</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="o">...</span> <span class="c1"># one or more lines here</span>
+    <span class="n">output_dct</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">output_dct</span><span class="p">[</span><span class="s2">&quot;std&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="n">output_dct</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Similarly, write a function <code class="docutils literal notranslate"><span class="pre">Boolean_helper</span></code> which takes a DataFrame input <code class="docutils literal notranslate"><span class="pre">df</span></code> and two string inputs, a class <code class="docutils literal notranslate"><span class="pre">k</span></code> (which will be “Not Fraud” or “Fraud” in our case) and a column name <code class="docutils literal notranslate"><span class="pre">col</span></code> of one of the Boolean columns.  The output should be a dictionary with keys <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>, representing the proportion of these values within the given class.  For an example, see the third bullet point after (4.30) in the textbook.</p></li>
+</ul>
+<p>Comment: Make sure your keys are <code class="docutils literal notranslate"><span class="pre">bool</span></code> values, not strings.</p>
+<ul class="simple">
+<li><p>Check your helper functions by comparing a few of their outputs to the following.  (I feel like there is probably a nice way to use the following DataFrame directly and never define the helper functions, but I did not succeed in doing that.)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;fraud&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here is an example of applying the Gaussian probability density function with mean 10 and standard deviation 4 to every entry in a column, without explicitly using any loops.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;distance_from_last_transaction&quot;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should view the outputs as representing the probability (densities) of the given Gaussian distribution producing the input values.</p>
+<p>Here is an example of using a dictionary to replace every value in a column.  Think of the values in this dictionary as our estimated probabilities.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp_dct</span> <span class="o">=</span> <span class="p">{</span><span class="kc">True</span><span class="p">:</span> <span class="mf">0.71</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="mf">0.29</span><span class="p">}</span>
+
+<span class="n">X_train</span><span class="p">[</span><span class="s2">&quot;used_chip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">temp_dct</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Momentarily fix the class <span class="math notranslate nohighlight">\(k\)</span> to be “Fraud”.  We are going to compute the numerator of Equation (4.30) for every row of <code class="docutils literal notranslate"><span class="pre">X_train</span></code>.  (Here we switch back to using <code class="docutils literal notranslate"><span class="pre">X_train</span></code> rather than <code class="docutils literal notranslate"><span class="pre">df_train</span></code>.)</p>
+<p>Do all of the following in a single code cell.  (The reason for not separating the cells is so that the entire cell can be run again easily.)</p>
+<ul class="simple">
+<li><p>Assign <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">&quot;Fraud&quot;</span></code>.</p></li>
+<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">X_train</span></code> DataFrame into a new DataFrame called <code class="docutils literal notranslate"><span class="pre">X_temp</span></code>.  Use the <code class="docutils literal notranslate"><span class="pre">copy</span></code> method.</p></li>
+<li><p>For each column of <code class="docutils literal notranslate"><span class="pre">X_temp</span></code>, use <code class="docutils literal notranslate"><span class="pre">Gaussian_helper</span></code> or <code class="docutils literal notranslate"><span class="pre">Boolean_helper</span></code>, as appropriate, to replace each value <span class="math notranslate nohighlight">\(x_i\)</span> with <span class="math notranslate nohighlight">\(f(x_i)\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is as in (4.30).  You can use a for loop to loop over the columns, but within a fixed column, you should not need to use a for loop (in other words, you should not need to loop over the rows, only over the columns).  The following imports might be helpful for determining the data types (make the imports outside of any for loop).</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="kn">import</span> <span class="n">is_bool_dtype</span><span class="p">,</span> <span class="n">is_float_dtype</span>
+</pre></div>
+</div>
+<p>Comment: Your code should be changing the <code class="docutils literal notranslate"><span class="pre">X_temp</span></code> entries but not the <code class="docutils literal notranslate"><span class="pre">X_train</span></code> entries.  When you are finished, <code class="docutils literal notranslate"><span class="pre">X_temp</span></code> will be a DataFrame containing probabilities, all corresponding to the “Fraud” class.</p>
+<ul class="simple">
+<li><p>For each row, multiply all entries in that row.  (Hint.  DataFrames have a <code class="docutils literal notranslate"><span class="pre">prod</span></code> method.)  Also multiply by the prior probability of “Fraud”.  (Use <code class="docutils literal notranslate"><span class="pre">k</span></code>, do not type <code class="docutils literal notranslate"><span class="pre">&quot;Fraud&quot;</span></code>.)  The end result should be a pandas Series corresponding to the numerator of (4.30), for each row of <code class="docutils literal notranslate"><span class="pre">X_train</span></code>.  Don’t be surprised if the numbers are very small, like around <span class="math notranslate nohighlight">\(10^{-10}\)</span>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Once the code is working, wrap the whole thing into another for loop, corresponding to <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">&quot;Fraud&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">&quot;Not</span> <span class="pre">Fraud&quot;</span></code>, putting the two resulting pandas Series into a length 2 dictionary with keys <code class="docutils literal notranslate"><span class="pre">&quot;Fraud&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Not</span> <span class="pre">Fraud&quot;</span></code>.  Call this dictionary <code class="docutils literal notranslate"><span class="pre">num_dct</span></code>, because it represents the numerators of (4.30).</p></li>
+</ul>
+<ul class="simple">
+<li><p>Create a new two-column pandas DataFrame with the results using the following code:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_num</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">num_dct</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>What proportion of the values in <code class="docutils literal notranslate"><span class="pre">X_train</span></code> are correctly identified as Fraud using this procedure?  (Note.  We never actually need to compute the denominator in (4.30), since all we care about here is which entry is bigger.)</p></li>
+</ul>
+</section>
+<section id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">Share</span></code> button at the top right, enable public sharing, and enable Comment privileges. Then submit the created link on Canvas.</p></li>
+</ul>
+</section>
+<section id="possible-extensions">
+<h2>Possible extensions<a class="headerlink" href="#possible-extensions" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>I originally wanted us to consider log loss as our error metric, but I decided the lab was already getting rather long, so I removed that.  But in general, log loss is a more refined measure for detecting overfitting than accuracy score.  It should be relatively straightforward to evaluate log loss for the Logistic Regression model.  Compare this to the log loss of a baseline prediction, where we predict the same probability for every row.  I got some errors when I tried to evaluate log loss for the Naive Bayes model and I haven’t thought carefully about how to avoid these.</p></li>
+<li><p>How do our values compare to using the scikit-learn Naive Bayes model?  (I don’t think this will be easy, because you will have to treat the Gaussian and the Boolean portions separately.  There might also be some discrepancy due to our method of estimating standard deviation, but I don’t think that is crucial.  I have not tried this myself, so there could also be other discrepancies I’m not anticipating.)</p></li>
+<li><p>How does KNN compare in performance?  (What’s the optimal number of neighbors?)  I haven’t tried this, and I think the training size might be too large, so be prepared to reduce the size of the training set further.</p></li>
+</ul>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=f2ec4f7b-862a-4f2a-b82a-fc00a94f2f21' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Lab1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lab 1 - Math 178, Spring 2024</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lab3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 3 - Math 178, Spring 2024</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-data">Preparing the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-using-scikit-learn">Logistic regression - using scikit-learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-by-hand">Naive Bayes - by hand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#possible-extensions">Possible extensions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christopher Davis
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

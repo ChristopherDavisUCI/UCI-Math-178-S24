@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 5 - Math 178, Spring 2024 &#8212; UC Irvine Math 178, Spring 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lab5';</script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Week 8 Friday" href="Week8-Friday.html" />
+    <link rel="prev" title="Lab 4 - Math 178, Spring 2024" href="Lab4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Faces.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Faces.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    UC Irvine, Math 178, Spring 2024
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab1.html">Lab 1 - Math 178, Spring 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab2.html">Lab 2 - Math 178, Spring 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab3.html">Lab 3 - Math 178, Spring 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab4.html">Lab 4 - Math 178, Spring 2024</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 5 - Math 178, Spring 2024</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Week8-Friday.html">Week 8 Friday</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week9-Wednesday.html">Week 9 Wednesday</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ChristopherDavisUCI/UCI-Math-178-S24" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lab5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 5 - Math 178, Spring 2024</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-updating-a-pre-installed-python-package-on-deepnote">Part 0 - Updating a pre-installed Python package on Deepnote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-pca-with-simulated-data">Part 1 - PCA with simulated data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-pca-with-the-olivetti-faces-dataset">Part 2 - PCA with the Olivetti faces dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#possible-extensions">Possible extensions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-math-178-spring-2024">
+<h1>Lab 5 - Math 178, Spring 2024<a class="headerlink" href="#lab-5-math-178-spring-2024" title="Permalink to this heading">#</a></h1>
+<p>You are encouraged to work in groups of up to 3 total students, but each student should make a submission on Canvas. (It’s fine for everyone in the group to submit the same link.)</p>
+<p>Put the full names of everyone in your group (even if you’re working alone) here. This makes grading easier.</p>
+<p><strong>Names</strong>:</p>
+<section id="part-0-updating-a-pre-installed-python-package-on-deepnote">
+<h2>Part 0 - Updating a pre-installed Python package on Deepnote<a class="headerlink" href="#part-0-updating-a-pre-installed-python-package-on-deepnote" title="Permalink to this heading">#</a></h2>
+<p>For your final project (remember that the proposal is due the same day as this lab), some code might not work due to Deepnote not having the most recent libraries installed.  Here is an example of updating Altair from version 4.2.2 to version 5.3 in Deepnote.</p>
+<ul class="simple">
+<li><p>On the left side, create a new file called <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.  (Be sure you spell this file name exactly as I did.)</p></li>
+<li><p>Within this requirements.txt file, include the single line <code class="docutils literal notranslate"><span class="pre">altair==5.3</span></code> (no quotation marks or anything).</p></li>
+<li><p>Click the Python version at the lower left (in the <code class="docutils literal notranslate"><span class="pre">Machine</span></code> section) and then click the <code class="docutils literal notranslate"><span class="pre">initialization</span> <span class="pre">notebook</span></code> option.  This should create an initialization notebook in the Notebooks section.  You don’t need to change that notebook, but it needs to exist in order for Deepnote to know to use the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p></li>
+<li><p>If everything went correctly, the left side of Deepnote should look like this.  (The two things to notice are the <code class="docutils literal notranslate"><span class="pre">Init</span></code> notebook and the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.)
+<img alt="Deepnote setup" src="_images/sample_image.png" /></p></li>
+<li><p>Check that things are working by evaluating</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+<p>and ensuring it says some version starting with <code class="docutils literal notranslate"><span class="pre">5.3</span></code>.  You will probably need to click <code class="docutils literal notranslate"><span class="pre">Stop</span> <span class="pre">machine</span></code> at the lower left and then restart it.</p>
+</section>
+<section id="part-1-pca-with-simulated-data">
+<h2>Part 1 - PCA with simulated data<a class="headerlink" href="#part-1-pca-with-simulated-data" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Define a NumPy random number generator object <code class="docutils literal notranslate"><span class="pre">rng</span></code> by using the <code class="docutils literal notranslate"><span class="pre">default_rng</span></code> function.  Specify a <code class="docutils literal notranslate"><span class="pre">seed</span></code> value so that you get reproducible results.</p></li>
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">multivariate_normal</span></code> method of <code class="docutils literal notranslate"><span class="pre">rng</span></code>, define <code class="docutils literal notranslate"><span class="pre">200</span></code> data points drawn from a two-dimensional Gaussian distribution.  Keep the <code class="docutils literal notranslate"><span class="pre">mean</span></code> at the origin, but specify a covariance matrix <code class="docutils literal notranslate"><span class="pre">cov</span></code> so that the data is elongated in one direction, and so that it is <em>not</em> axis-aligned.  (PCA will not be interesting if our data is axis-aligned.  We want to have some significant correlation between the features.  There are only two features in our current case.)</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">arr</span></code> is a 200x2 NumPy array of data, we can display it in Altair using the following code.  (<strong>Warning</strong>.  This code will not work if you did not update to Altair 5.3 above.  I assume NumPy, pandas, and Altair have already been imported with the standard abbreviations.  We’re specifying an explicit domain for the variables so that it’s easier to tell what the slope is.  Feel free to change the domain, but I think it’s easiest to use the same domain for both coordinates.)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">])</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If your data looks too symmetric (like a disk) or too axis-aligned, try changing your chosen covariance matrix (or, less likely, your random seed).</p></li>
+</ul>
+<ul class="simple">
+<li><p>Fit a <code class="docutils literal notranslate"><span class="pre">PCA</span></code> object from <code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code> to the data in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Check the <code class="docutils literal notranslate"><span class="pre">components_</span></code> attribute of this fit <code class="docutils literal notranslate"><span class="pre">PCA</span></code> object.  Do you see how the rows of this matrix correspond to the distribution of the data?  (Sample final exam question type: Which of the following could be the principal components corresponding to the following data?)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">transform</span></code> method of our PCA object, add two new columns to our DataFrame corresponding to the principal component scores of our <code class="docutils literal notranslate"><span class="pre">arr</span></code> data.  Name these new columns <code class="docutils literal notranslate"><span class="pre">&quot;PC1&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;PC2&quot;</span></code>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">df.var(axis=0)</span></code>.  This should produce four variance values.  Notice how the sum of the values for our original columns equals the sum of the values for our new columns.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Check the <code class="docutils literal notranslate"><span class="pre">explained_variance_ratio_</span></code> attribute of our fit PCA object.  How could you compute these same numbers using the variance values just computed?</p></li>
+</ul>
+<ul class="simple">
+<li><p>Add a color encoding using <code class="docutils literal notranslate"><span class="pre">alt.Color</span></code> to our Altair chart, using the new column “PC1”.  Specify a color scheme by using <code class="docutils literal notranslate"><span class="pre">color=alt.Color(&quot;PC1&quot;).scale(scheme=???)</span></code>.  You can see the choice of color schemes <a class="reference external" href="https://vega.github.io/vega/docs/schemes/">here</a>.  Choose a diverging color scheme (we want to be able to clearly differentiate between positive and negative scores).</p></li>
+</ul>
+<ul class="simple">
+<li><p>Do the same thing again, but now using “PC2” instead of “PC1” for the color scheme encoding.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Sample exam question (no need to turn anything in for this question).  Given the principal component vectors, can you recognize which points in our original dataset will have the largest scores for those principal components?</p></li>
+</ul>
+</section>
+<section id="part-2-pca-with-the-olivetti-faces-dataset">
+<h2>Part 2 - PCA with the Olivetti faces dataset<a class="headerlink" href="#part-2-pca-with-the-olivetti-faces-dataset" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Using scikit-learn’s <code class="docutils literal notranslate"><span class="pre">fetch_olivetti_faces</span></code> function (remember to import this function first), download the Olivetti faces dataset (along with the identifier values) using the following syntax.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">fetch_olivetti_faces</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If you import Pyplot as follows</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p>then you can display one of these faces (say the <code class="docutils literal notranslate"><span class="pre">151</span></code>st face) as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">151</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;binary_r&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This corresponds to the <code class="docutils literal notranslate"><span class="pre">15</span></code>-th person in the dataset, as can be seen by evaluating the following: <code class="docutils literal notranslate"><span class="pre">y[151]</span></code></p></li>
+</ul>
+<ul class="simple">
+<li><p>Sample exam question (no need to turn anything in for this question).  We considered this dataset in terms of unsupervised learning.  Why would this dataset also be well-suited to use in supervised learning?</p></li>
+</ul>
+<ul class="simple">
+<li><p>Fit a new <code class="docutils literal notranslate"><span class="pre">PCA</span></code> object <code class="docutils literal notranslate"><span class="pre">pca_faces</span></code> to this dataset.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Display the first (0-th in Python numbering) principal component vector as an image (reshaped to 64-by-64 dimensions), as what we did above.</p></li>
+</ul>
+<ul class="simple">
+<li><p>How many total principal components should be used to explain 90% of the variance?  (It’s okay to use some guessing and checking to find this value, but if you want a difficult Python exercise, try to automate this without using any explicit loop.  See the <em>Possible extensions</em> section below for the approach I would use.)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Fit another PCA object <code class="docutils literal notranslate"><span class="pre">pca2</span></code> to this face data, but this time, when instantiating the PCA object, specify that <code class="docutils literal notranslate"><span class="pre">n</span></code> components should be used, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number needed to explain 90% of the variance (as in the previous question).  Don’t worry about off-by-one errors due to Python indexing starting at 0.  (Typo corrected Tuesday June 4th to change 80% to 90%.)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Transform the data and save it in a new variable, <code class="docutils literal notranslate"><span class="pre">X_transform</span></code>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">X_transform[151]</span></code>.  How many numbers are there?  What do these numbers represent?</p></li>
+</ul>
+<ul class="simple">
+<li><p>Convince yourself that the following corresponds to the 151-st face projected onto the n-dimensional subspace, spanned by the principal components we just found.  (The <code class="docutils literal notranslate"><span class="pre">dot</span></code> method is used for matrix multiplication.)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">face_projection</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X_transform</span><span class="p">[</span><span class="mi">151</span><span class="p">],</span> <span class="n">pca2</span><span class="o">.</span><span class="n">components_</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Display this projected 151st face.  It should look in some ways similar to the original face displayed above.  (It should look much closer to that face than our first principal component “eigenface” did.  If it looks identical to the 151st face, then something went wrong with restricting the number of components.)</p></li>
+</ul>
+</section>
+<section id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">Share</span></code> button at the top right, enable public sharing, and enable Comment privileges. Then submit the created link on Canvas.</p></li>
+</ul>
+</section>
+<section id="possible-extensions">
+<h2>Possible extensions<a class="headerlink" href="#possible-extensions" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>One interesting extension would be to perform some sort of facial recognition on this dataset using in part PCA.  There are only 400 faces in the entire dataset, even less if you hold out a test set, so I doubt a neural network is the right thing to use (but I could be wrong).</p></li>
+<li><p>I think it would be interesting to take only two or three people in this dataset (20 or 30 face images) and perform PCA on this portion of the dataset using only two principal components (two so we can plot it).  Then make a scatter plot of the transformed data (the scores), and color the points according to which face they corresponded.  Do the same faces appear on the same part of the scatter plot?</p></li>
+<li><p>A Python exercise (not a data science exercise) would be to automate finding the index where 90% of variance gets explained.  I think what I would use is <code class="docutils literal notranslate"><span class="pre">np.cumsum</span></code> and <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code>.</p></li>
+</ul>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=55513ea8-bfe2-4d74-8697-f7639ffaa6c8' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Lab4.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lab 4 - Math 178, Spring 2024</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week8-Friday.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 8 Friday</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-updating-a-pre-installed-python-package-on-deepnote">Part 0 - Updating a pre-installed Python package on Deepnote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-pca-with-simulated-data">Part 1 - PCA with simulated data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-pca-with-the-olivetti-faces-dataset">Part 2 - PCA with the Olivetti faces dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission">Submission</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#possible-extensions">Possible extensions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christopher Davis
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
